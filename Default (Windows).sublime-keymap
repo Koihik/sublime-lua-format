@@ -1,0 +1,13 @@
+[
+    {
+        "keys": [
+            "ctrl+shift+f"
+        ],
+        "context": {
+            "key": "selector",
+            "operator": "equal",
+            "operand": "source.lua"
+        },
+        "command": "lua_format"
+    }
+]
