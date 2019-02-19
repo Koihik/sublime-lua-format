@@ -1,13 +1,8 @@
 [
     {
         "keys": [
-            "ctrl+shift+f"
+            "ctrl+alt+l"
         ],
-        "context": {
-            "key": "selector",
-            "operator": "equal",
-            "operand": "source.lua"
-        },
         "command": "lua_format"
     }
 ]

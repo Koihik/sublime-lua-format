@@ -18,4 +18,5 @@ Reformats your Lua source code.
 
 ## Default keymap
 
-* `command+shift+f`
+* macOS: `command+ctrl+l`
+* Linux/Windows: `ctrl+alt+l`
