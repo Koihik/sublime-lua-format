@@ -27,7 +27,12 @@ class LuaFormatCommand(sublime_plugin.TextCommand):
         output = bytes.decode(process.stdout.read())
         error = bytes.decode(process.stderr.read())
         if error == "":
-            self.view.replace(edit, sublime.Region(0, self.view.size()), output)
+            self.view.replace(
+                edit,
+                sublime.Region(0, self.view.size()),
+                # ST always uses \n in the text buffer
+                output.replace("\r\n", "\n"),
+            )
         else:
             sublime.error_message(error)
 
