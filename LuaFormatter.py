@@ -1,6 +1,9 @@
 import os
-import sublime, sublime_plugin, sys
+import sublime
+import sublime_plugin
 import subprocess
+import sys
+
 
 class LuaFormatCommand(sublime_plugin.TextCommand):
     def run(self, edit, error=True, save=True):
@@ -24,13 +27,14 @@ class LuaFormatCommand(sublime_plugin.TextCommand):
         output = bytes.decode(process.stdout.read())
         error = bytes.decode(process.stderr.read())
         if error == "":
-          self.view.replace(edit, sublime.Region(0, self.view.size()), output)
+            self.view.replace(edit, sublime.Region(0, self.view.size()), output)
         else:
-          sublime.error_message(error)
+            sublime.error_message(error)
+
 
 class LuaFormatOnPreSave(sublime_plugin.EventListener):
     def on_pre_save(self, view):
-        if view.file_name().endswith('.lua'):
+        if view.file_name().endswith(".lua"):
             config = sublime.load_settings("LuaFormatter.sublime-settings")
             if config.get("auto_format_on_save", False):
                 view.run_command("lua_format")
